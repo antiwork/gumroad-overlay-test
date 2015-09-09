@@ -1,0 +1,29 @@
+%html
+  %head
+    %title Gumroad Widgets
+    %script{ src: "#{@data[:host]}/js/gumroad#{@widget == :embed ? '-embed' : ''}.js" }
+    %link{ rel: "stylesheet", href: "/style.css" }
+  %body
+    %h1= "Testing the #{@widget} widget on #{@environment}"
+    %hr
+      - @data[:products].each do |permalink, name|
+        .product
+          - if @widget == :embed
+            .gumroad-product-embed{ data: { gumroad_product_id: permalink } }
+              %a{ href: "#{@data[:host]}/l/#{permalink}"}= "Loading #{name}..."
+          - else
+            %a.gumroad-button{ href: "#{@data[:host]}/l/#{permalink}" }= name
+    %hr
+    .links
+      %h3 Switch environment:
+      %ul
+        - @all_environments.each do |environment|
+          - unless environment == @environment
+            %li
+              %a{ href: "/?env=#{environment}&widget=#{@widget}" }= environment
+      / %h3 Switch widget:
+      / %ul
+      /   - @all_widgets.each do |widget|
+      /     - unless widget == @widget
+      /       %li
+      /         %a{ href: "/?env=#{@environment}&widget=#{widget}" }= widget

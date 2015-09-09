@@ -1,0 +1,18 @@
+body {
+  font-family: Baskerville;
+  font-size: 18px;
+  padding: 15px;
+}
+
+.product {
+  clear: both;
+  margin: 20px;
+}
+
+.links {
+  font-size: 14px;
+}
+
+li {
+  padding: 5px;
+}
