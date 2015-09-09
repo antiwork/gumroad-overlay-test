@@ -6,6 +6,8 @@
   %body
     %h1= "Testing the #{@widget} widget on #{@environment}"
     %hr
+      - if @data[:products].empty?
+        Add your products to web.rb and overlay buttons will appear here.
       - @data[:products].each do |permalink, name|
         .product
           - if @widget == :embed
