@@ -3,16 +3,16 @@ require "sinatra"
 helpers do
   def data
     { development: {
-        host: "http://localhost:333",
-        products: {} # add your products here
+        host: "http://localhost:3333",
+        products: {} # Add your products here!
       },
       staging: {
         host: "https://staging.gumroad.com",
-        products: { hdA: "Hedgehog", usk: "Badger" }
+        products: { nwfr: "Kyle 1", Yul: "Kyle 2" }
       },
       staging_x: {
         host: "https://staging-x.gumroad.com",
-        products: { s: "Test JPG single file", nM: "test2" }
+        products: { nM: "test2", Z: "Test physical" }
       },
       production: {
         host: "https://gumroad.com",
@@ -23,10 +23,10 @@ helpers do
 end
 
 get "/*" do
-  @environment = (params[:env] || "development").to_sym
-  @widget = (params[:widget] || "overlay").to_sym
-  @all_widgets = %i(overlay) # "embed" doesn't work quite yet
+  @environment      = (params[:env] || "development").to_sym
+  @widget           = (params[:widget] || "overlay").to_sym
+  @all_widgets      = %i(overlay embed)
   @all_environments = data.keys
-  @data = data[@environment]
+  @data             = data[@environment]
   haml :main
 end
