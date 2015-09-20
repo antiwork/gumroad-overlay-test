@@ -4,19 +4,19 @@ helpers do
   def data
     { development: {
         host: "http://localhost:3333",
-        products: {} # Add your products here!
+        products: {}
       },
       staging: {
         host: "https://staging.gumroad.com",
-        products: { nwfr: "Kyle 1", Yul: "Kyle 2" }
+        products: { hedgehog: "Hedgehog", hdA: "Hedgehog", usk: "Badger" }
       },
       staging_x: {
         host: "https://staging-x.gumroad.com",
-        products: { nM: "test2", Z: "Test physical" }
+        products: {}
       },
       production: {
         host: "https://gumroad.com",
-        products: { owptA: "Jackalope Bolo Tie", wMpzM: "Superbutts" }
+        products: { bolotie: "Jackalope Bolo Tie", superbutts: "Superbutts", owptA: "Javalope Bolo Tie", wMpzM: "Superbutts" }
       }
     }
   end

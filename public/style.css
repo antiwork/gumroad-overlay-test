@@ -1,16 +1,34 @@
 body {
   font-family: "Helvetica Neue", sans-serif;
   font-size: 18px;
-  padding: 15px;
 }
+
+
+.links {
+  font-size: 14px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: lightgray;
+  padding: 10px;
+  border-bottom: solid 2px gray;
+}
+
+.links .section {
+  float: left;
+  margin-right: 100px;
+}
+
+.main {
+  clear: both;
+  margin-top: 200px;
+}
+
 
 .product {
   clear: both;
   margin: 20px;
-}
-
-.links {
-  font-size: 14px;
 }
 
 li {

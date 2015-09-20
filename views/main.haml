@@ -5,28 +5,39 @@
     %link{ rel: "stylesheet", href: "/style.css" }
     %link{ rel: "shortcut icon", href: "/favicon.png" }
   %body
-    %h1= "Testing the #{@widget} widget on #{@environment}"
-    %hr
-      - if @data[:products].empty?
-        Add your products to web.rb and overlay buttons will appear here.
-      - @data[:products].each do |permalink, name|
-        .product
-          - if @widget == :embed
-            .gumroad-product-embed{ data: { gumroad_product_id: permalink } }
-              %a{ href: "#{@data[:host]}/l/#{permalink}"}= "Loading #{name}..."
-          - else
-            %a.gumroad-button{ href: "#{@data[:host]}/l/#{permalink}" }= name
-    %hr
     .links
-      %h3 Switch environment:
-      %ul
-        - @all_environments.each do |environment|
-          - unless environment == @environment
-            %li
-              %a{ href: "/?env=#{environment}&widget=#{@widget}" }= environment
-      %h3 Switch widget:
-      %ul
-        - @all_widgets.each do |widget|
-          - unless widget == @widget
-            %li
-              %a{ href: "/?env=#{@environment}&widget=#{widget}" }= widget
+      .section
+        %h3 Switch environment:
+        %ul
+          - @all_environments.each do |environment|
+            - unless environment == @environment
+              %li
+                %a{ href: "/?env=#{environment}&widget=#{@widget}" }= environment
+      .section
+        %h3 Switch widget:
+        %ul
+          - @all_widgets.each do |widget|
+            - unless widget == @widget
+              %li
+                %a{ href: "/?env=#{@environment}&widget=#{widget}" }= widget
+      .section
+        %h3 Tips & tricks:
+        %ul
+          %li Does it work with unique permalinks and custom permalinks?
+    .main
+      %h1= "Testing the #{@widget} widget on #{@environment}"
+      %hr
+        - if @data[:products].any?
+          - @data[:products].each do |permalink, name|
+            .product
+              - if @widget == :embed
+                .gumroad-product-embed{ data: { gumroad_product_id: permalink } }
+                  %a{ href: "#{@data[:host]}/l/#{permalink}"}= "Loading #{name} ..."
+              - else
+                %a.gumroad-button{ href: "#{@data[:host]}/l/#{permalink}" }= name
+        - else
+          %p
+            No products for
+            %code= @environment
+            = "-- add some in"
+            %code web.rb
