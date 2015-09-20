@@ -14,8 +14,11 @@
           - if @widget == :embed
             .gumroad-product-embed{ data: { gumroad_product_id: permalink } }
               %a{ href: "#{@data[:host]}/l/#{permalink}"}= "Loading #{name}..."
-          - else
+          - elsif @widget == :overlay
             %a.gumroad-button{ href: "#{@data[:host]}/l/#{permalink}" }= name
+          - elsif @widget == :overlay_with_cover_photo
+            %a.custom-gumroad-button{ href: "#{@data[:host]}/l/#{permalink}", data: { "gumroad-cover-photo" => 1 } }
+              %span= name
     %hr
     .links
       %h3 Switch environment:
