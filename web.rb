@@ -25,7 +25,7 @@ end
 get "/*" do
   @environment      = (params[:env] || "development").to_sym
   @widget           = (params[:widget] || "overlay").to_sym
-  @all_widgets      = %i(overlay embed)
+  @all_widgets      = %i(overlay embed overlay_with_cover_photo)
   @all_environments = data.keys
   @data             = data[@environment]
   haml :main

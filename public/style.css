@@ -16,3 +16,18 @@ body {
 li {
   padding: 5px;
 }
+
+a.custom-gumroad-button {
+  width: 100px;
+  text-decoration: none
+}
+
+a.custom-gumroad-button span {
+  position: relative;
+  left: -100px;
+  top: -10px;
+}
+
+a.custom-gumroad-button img {
+  width: 100px;
+}
