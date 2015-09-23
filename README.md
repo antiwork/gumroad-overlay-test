@@ -10,7 +10,7 @@ More information on how to implement and customize the widgets can be found [in 
 git clone git@github.com:gumroad/web-overlay-test.git
 cd web-overlay-test
 bundle install
-bundle exec ruby web.rb
+ruby web.rb
 ```
 
 ### Making changes to the app:
