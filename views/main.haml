@@ -24,6 +24,10 @@
         %h3 Tips & tricks:
         %ul
           %li Does it work with unique permalinks and custom permalinks?
+          %li
+            Does it work with
+            = succeed("?") do
+              %code '?wanted=true'
 
     .main
       %h1= "Testing the #{@widget} widget on #{@environment}"
