@@ -1,0 +1,140 @@
+# For the entire list see: https://github.com/bbatsov/rubocop/blob/v0.26.1/config/enabled.yml
+
+AllCops:
+  RunRailsCops: true
+
+Documentation:
+  Enabled: false
+
+Style/FileName:
+  Exclude:
+    - 'ci_scripts/**/*'
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Style/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: false
+
+Style/Encoding:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  MaxLineLength: 160
+
+Style/LambdaCall:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/Next:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/RaiseArgs:
+  EnforcedStyle: compact
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/WhileUntilModifier:
+  MaxLineLength: 160
+
+Style/WordArray:
+  MinSize: 0
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/PredicateName:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/GlobalVars:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: false
+
+Style/SignalException:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/EachWithObject:
+  Enabled: false
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+##################### Metrics ##################################
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockNesting:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 200
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 140
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Max: 11
+  CountKeywordArgs: true
+
+Metrics/PerceivedComplexity:
+  Max: 47
+
+Metrics/CyclomaticComplexity:
+  Max: 46
+
+##################### Lint ##################################
+
+Lint/AssignmentInCondition:
+  AllowSafeAssignment: true
+
+##################### Rails ##################################
+
+# TODO: Fix Date/Time/DateTime/Zone/etc
+Rails/Date:
+  Enabled: false
+
+Rails/FindBy:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/ScopeArgs:
+  Enabled: false
+
+Rails/TimeZone:
+  Enabled: false
+
+Rails/Validation:
+  Enabled: false

@@ -9,7 +9,7 @@ helpers do
       },
       staging: {
         host: "https://staging.gumroad.com",
-        products: { aardvark: "Aardvark", possum: "Possum", hedgehog: "Hedgehog" }
+        products: { aardvark: "Aardvark (subscription)", possum: "Possum (variants)", hedgehog: "Hedgehog (rent/buy)", badger: "Badger (vanilla)" }
       },
       staging_x: {
         host: "https://staging-x.gumroad.com",
