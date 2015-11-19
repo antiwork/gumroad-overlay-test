@@ -2,13 +2,14 @@ require "sinatra"
 
 helpers do
   def data
-    { development: {
+    {
+      development: {
         host: "http://localhost:3333",
         products: {}
       },
       staging: {
         host: "https://staging.gumroad.com",
-        products: { hedgehog: "Hedgehog", hdA: "Hedgehog", usk: "Badger" }
+        products: { aardvark: "Aardvark", possum: "Possum", hedgehog: "Hedgehog" }
       },
       staging_x: {
         host: "https://staging-x.gumroad.com",

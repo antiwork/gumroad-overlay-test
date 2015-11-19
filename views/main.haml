@@ -20,14 +20,42 @@
             - unless widget == @widget
               %li
                 %a{ href: "/?env=#{@environment}&widget=#{widget}" }= widget
+
+      .section
+        %h3 Set options:
+        - url = "/?env=#{@environment}&widget=#{@widget}"
+        %ul
+          - if @widget == :embed
+            %li
+              - outbound_url = url
+              - outbound_url += "&outbound_embed=true" unless params[:outbound_embed]
+              %input{ type: :checkbox, disabled: true, checked: params[:outbound_embed] }
+              %a{ href: outbound_url }
+                Redirect to Gumroad
+                %code (outbound embed)
+
+          - else
+            %li
+              - wanted_url = url
+              - wanted_url += "&single_product=true" if params[:single_product]
+              - wanted_url += "&wanted=true" unless params[:wanted]
+              %input{ type: :checkbox, disabled: true, checked: params[:wanted] }
+              %a{ href: wanted_url }
+                %code wanted=true?
+
+            %li
+              - single_product_url = url
+              - single_product_url += "&single_product=true" unless params[:single_product]
+              - single_product_url += "&wanted=true" if params[:wanted]
+              %input{ type: :checkbox, disabled: true, checked: params[:single_product] }
+              %a{ href: single_product_url } Single-product purchases only
+
       .section
         %h3 Tips & tricks:
         %ul
           %li Does it work with unique permalinks and custom permalinks?
-          %li
-            Does it work with
-            = succeed("?") do
-              %code '?wanted=true'
+          %li Subscriptions? (account support needs to be included)
+          %li Custom fields and variants? (quick add-to-bundle may not be possible)
 
     .main
       %h1= "Testing the #{@widget} widget on #{@environment}"
@@ -36,10 +64,10 @@
           - @data[:products].each do |permalink, name|
             .product
               - if @widget == :embed
-                .gumroad-product-embed{ data: { gumroad_product_id: permalink } }
-                  %a{ href: "#{@data[:host]}/l/#{permalink}"}= "Loading #{name} ..."
+                .gumroad-product-embed{ data: { gumroad_product_id: permalink, outbound_embed: params[:outbound_embed] && "true" } }
+                  %a{ href: "#{@data[:host]}/products/#{permalink}" }= "Loading #{name} ..."
               - else
-                %a.gumroad-button{ href: "#{@data[:host]}/l/#{permalink}" }= name
+                %a.gumroad-button{ href: "#{@data[:host]}/l/#{permalink}#{ params[:wanted] ? '?wanted=true' : '' }", data: { gumroad_single_product: params[:single_product] && "true" } }= name
         - else
           %p
             No products for
