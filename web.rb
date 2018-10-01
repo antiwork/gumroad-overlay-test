@@ -4,16 +4,17 @@ helpers do
   def data
     {
       development: {
-        host: "http://localhost:3333",
-        products: {}
+        host: "https://db10e4f5.ngrok.io",
+        products: { m: "Test Test Test" }
       },
       staging: {
         host: "https://staging.gumroad.com",
-        products: { aardvark: "Aardvark (subscription)", possum: "Possum (variants)", hedgehog: "Hedgehog (rent/buy)", badger: "Badger (vanilla)" }
+        products: { aardvark: "Aardvark (subscription)", possum: "Possum (variants)", hedgehog: "Hedgehog (rent/buy)", badger: "Badger (vanilla)",
+                    rtsT: "Test image overlays" }
       },
       production: {
         host: "https://gumroad.com",
-        products: { bolotie: "Jackalope Bolo Tie", superbutts: "Superbutts", owptA: "Javalope Bolo Tie", wMpzM: "Superbutts" }
+        products: { bolotie: "Jackalope Bolo Tie", superbutts: "Superbutts", owptA: "Javalope Bolo Tie", wMpzM: "Superbutts", aAGvv: "Test image overlays" }
       }
     }
   end
