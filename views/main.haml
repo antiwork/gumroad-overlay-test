@@ -1,3 +1,4 @@
+!!!
 %html
   %head
     %title Gumroad Widgets
@@ -60,17 +61,17 @@
     .main
       %h1= "Testing the #{@widget} widget on #{@environment}"
       %hr
-        - if @data[:products].any?
-          - @data[:products].each do |permalink, name|
-            .product
-              - if @widget == :embed
-                .gumroad-product-embed{ data: { gumroad_product_id: permalink, outbound_embed: params[:outbound_embed] && "true" } }
-                  %a{ href: "#{@data[:host]}/products/#{permalink}" }= "Loading #{name} ..."
-              - else
-                %a.gumroad-button{ href: "#{@data[:host]}/l/#{permalink}#{ params[:wanted] ? '?wanted=true' : '' }", data: { gumroad_single_product: params[:single_product] && "true" } }= name
-        - else
-          %p
-            No products for
-            %code= @environment
-            = "-- add some in"
-            %code web.rb
+      - if @data[:products].any?
+        - @data[:products].each do |permalink, name|
+          .product
+            - if @widget == :embed
+              .gumroad-product-embed{ data: { gumroad_product_id: permalink, outbound_embed: params[:outbound_embed] && "true" } }
+                %a{ href: "#{@data[:host]}/products/#{permalink}" }= "Loading #{name} ..."
+            - else
+              %a.gumroad-button{ href: "#{@data[:host]}/l/#{permalink}#{ params[:wanted] ? '?wanted=true' : '' }", data: { gumroad_single_product: params[:single_product] && "true" } }= name
+      - else
+        %p
+          No products for
+          %code= @environment
+          = "-- add some in"
+          %code web.rb
