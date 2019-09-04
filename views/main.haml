@@ -66,12 +66,14 @@
           .product
             - if @widget == :embed
               .gumroad-product-embed{ data: { gumroad_product_id: permalink, outbound_embed: params[:outbound_embed] && "true" } }
-                %a{ href: "#{@data[:host]}/products/#{permalink}" }= "Loading #{name} ..."
+                %a{ href: "#{@data[:host]}/products/#{permalink}" }
+                  = "Loading #{name} ..."
             - else
               %a.gumroad-button{ href: "#{@data[:host]}/l/#{permalink}#{ params[:wanted] ? '?wanted=true' : '' }", data: { gumroad_single_product: params[:single_product] && "true" } }= name
       - else
         %p
           No products for
-          %code= @environment
+          %code
+            = @environment
           = "-- add some in"
           %code web.rb
