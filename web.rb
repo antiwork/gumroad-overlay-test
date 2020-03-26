@@ -4,8 +4,8 @@ helpers do
   def data
     {
       development: {
-        host: "http://local.host:3000",
-        products: { i: "Test", ip: "Subs" }
+        host: "https://5f56a7a2.ngrok.io",
+        products: { i: "Test", t: "Test small PDF" }
       },
       staging: {
         host: "https://staging.gumroad.com",
@@ -16,6 +16,10 @@ helpers do
         host: "https://gumroad.com",
         products: { bolotie: "Jackalope Bolo Tie", superbutts: "Superbutts", owptA: "Javalope Bolo Tie",
                     wMpzM: "Superbutts", aAGvv: "Test image overlays", "pencil" => "pencil" }
+      },
+      feature: {
+        host: "https://invisible-recaptcha.staging.gumroad.com/",
+        products: { i: "Test", t: "Test small PDF" }
       }
     }
   end
